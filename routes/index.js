@@ -55,12 +55,22 @@ router.post('/:name/tasks', async(req, res, next) => {
 router.put('/:index', async(req, res, next) => {
   try{
     const taskComplete = await todos.complete()
-    req.send();
+    res.send();
   }catch(err){
     next(err);
   }
 })
 
   //removes a specific task, using remove function
-router
+router.put('/:index', async(req, res, next) => {
+    try{
+      const removeTask = await todos.remove()
+      res.send(removeTask);
+    }catch(err){
+      next(err);
+    }
+  })
+
+  //extra credit, filtering
+
 
